@@ -25,6 +25,13 @@ body {
   overflow-x: unset;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
+<<<<<<< HEAD
+=======
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+>>>>>>> 3c6cba22d139123b264d56398b872604f506b1b3
   color: #000;
 }
 
@@ -410,3 +417,10 @@ template {
 [hidden] {
   display: none;
 }
+<<<<<<< HEAD
+=======
+
+body {
+  background: gray;
+}
+>>>>>>> 3c6cba22d139123b264d56398b872604f506b1b3

@@ -39,12 +39,7 @@
                 cursor: pointer;
                 @include desktop {
                     border-bottom: 0;
-                }
-                &:hover {
-                    color: $morado;
-                    &::before {
-                        animation: animarFlechasAbajo 1s infinite;
-                    }
+                    text-align: center;
                 }
 
                 &::before {
@@ -97,9 +92,19 @@
                     margin: 0;
                     padding-left: 0.7em;
                     font-size: 1em;
-                    font-weight: bold;
+                    font-weight: lighter;
+                    color: $morado;
                     @include desktop {
                         width: 20%;
+                        font-size: 0.8em;
+                    }
+                }
+                &:hover {
+                    &::before {
+                        animation: animarFlechasAbajo 1s infinite;
+                    }
+                    p {
+                        font-weight: bold;
                     }
                 }
             }

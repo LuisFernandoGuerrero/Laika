@@ -2067,8 +2067,15 @@ var hamburguesa = document.querySelector('.hamburguesa');
 var formulario = document.querySelector('#formulario');
 var navegacion = document.querySelector('.navegacion');
 var selectCiudad = document.querySelector('.listaCiudades');
+var ciudad = document.querySelector('.ciudad');
 hamburguesa.addEventListener('click', animarHamburguesa);
 formulario.addEventListener('submit', buscarNecesidad);
+ciudad.addEventListener('click', mostrarListaCiudades);
+
+function mostrarListaCiudades() {
+  selectCiudad.classList.toggle('mostrarListaCiudades');
+} // Menu Hamburguesa
+
 
 function animarHamburguesa() {
   hamburguesa.classList.toggle('hamburguesaActiva');
@@ -2083,7 +2090,9 @@ function mostrarMenu() {
   } else {
     navegacion.classList.remove('navegacionActiva');
   }
-}
+} // Final Menu Hamburguesa
+// Validación busqueda
+
 
 function buscarNecesidad(e) {
   e.preventDefault(); // Trae lo que ha escrito el usuario en el input.
@@ -2104,7 +2113,9 @@ function buscarNecesidad(e) {
   }
 
   console.log("Bien hecho, has escrito: ".concat(inputFormulario));
-}
+} // Final Validación busqueda
+// Consulta API de ciudades y mostrarlas en html
+
 
 function consultarAPICiudades() {
   var url = 'http://localhost:4000/ciudades';
@@ -2124,7 +2135,7 @@ function selectCiudades(ciudades) {
     opcion.value = nombre;
     selectCiudad.appendChild(opcion);
   });
-}
+} // Final Consulta API de ciudades y mostrarlas en html
 
 /***/ }),
 

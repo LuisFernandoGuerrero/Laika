@@ -30,10 +30,8 @@
             </div>
 
             <div class="ciudad">
-
                 <img src="{{ asset('img/flag_of_colombia.svg')}}" alt="flag">
                 <p>Bog</p>
-
                 <ul class="listaCiudades"></ul>
             </div>
 
@@ -54,11 +52,11 @@
             <ul class="lista">
                 <li>
                     <img src="{{ asset('img/perro_animal1.jpg')}}" alt="Perro">
-                    <p>Perro</p>
+                    <p>Compra para Perro</p>
                 </li>
                 <li>
                     <img src="{{ asset('img/gato_animal2.jpg')}}" alt="Gato">
-                    <p>Gato</p>
+                    <p>Compra para Gato</p>
                 </li>
                 <li>
                     <img src="{{ asset('img/figuras.png')}}" alt="Servicios">

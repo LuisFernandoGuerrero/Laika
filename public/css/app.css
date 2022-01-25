@@ -518,70 +518,6 @@ template {
     font-size: 0.9em;
   }
 }
-.header .contenedor .ciudad {
-  display: none;
-}
-@media (min-width: 65em) {
-  .header .contenedor .ciudad {
-    order: 3;
-    display: flex;
-    align-items: center;
-    padding-left: 2em;
-    width: 8em;
-    position: relative;
-    cursor: pointer;
-  }
-}
-.header .contenedor .ciudad p {
-  color: #fff;
-  font-size: 1em;
-  margin: 0;
-  margin-left: 0.5em;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-@media (min-width: 65em) {
-  .header .contenedor .ciudad img {
-    width: 1.6em;
-    height: 1.2em;
-    border-radius: 0.4em;
-  }
-}
-.header .contenedor .ciudad::before {
-  content: "";
-  position: absolute;
-  top: 28%;
-  background-image: url(/images/chevron-down-solid.svg?42674655f95e06d743d5ed5131b15222);
-  background-repeat: no-repeat;
-  width: 0.8em;
-  height: 0.8em;
-  right: 0%;
-}
-.header .contenedor .ciudad .listaCiudades {
-  display: none;
-}
-@media (min-width: 65em) {
-  .header .contenedor .ciudad .listaCiudades.mostrarListaCiudades {
-    display: block;
-    position: absolute;
-    height: auto;
-    max-height: 40vh;
-    overflow-y: scroll;
-    scrollbar-width: none;
-    top: 5vh;
-    left: 0;
-    background: #603e85;
-    width: 15em;
-    border-radius: 0 0 1em 1em;
-    z-index: 5;
-  }
-  .header .contenedor .ciudad .listaCiudades.mostrarListaCiudades li {
-    color: #fff;
-    font-weight: bolder;
-    padding: 0 0.5em 0.8em 0.5em;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-  }
-}
 .header .contenedor .carrito {
   width: 8%;
   position: relative;
@@ -738,14 +674,8 @@ template {
 @media (min-width: 65em) {
   .navegacion nav .lista li {
     border-bottom: 0;
+    text-align: center;
   }
-}
-.navegacion nav .lista li:hover {
-  color: #603e85;
-}
-.navegacion nav .lista li:hover::before {
-  -webkit-animation: animarFlechasAbajo 1s infinite;
-          animation: animarFlechasAbajo 1s infinite;
 }
 .navegacion nav .lista li::before {
   content: "";
@@ -824,10 +754,94 @@ template {
   margin: 0;
   padding-left: 0.7em;
   font-size: 1em;
-  font-weight: bold;
+  font-weight: lighter;
+  color: #603e85;
 }
 @media (min-width: 65em) {
   .navegacion nav .lista li p {
     width: 20%;
+    font-size: 0.8em;
+  }
+}
+.navegacion nav .lista li:hover::before {
+  -webkit-animation: animarFlechasAbajo 1s infinite;
+          animation: animarFlechasAbajo 1s infinite;
+}
+.navegacion nav .lista li:hover p {
+  font-weight: bold;
+}
+
+.ciudad {
+  display: none;
+}
+@media (min-width: 65em) {
+  .ciudad {
+    order: 3;
+    display: flex;
+    align-items: center;
+    padding-left: 2em;
+    width: 8em;
+    position: relative;
+    cursor: pointer;
+  }
+}
+.ciudad p {
+  color: #fff;
+  font-size: 1em;
+  margin: 0;
+  margin-left: 0.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+@media (min-width: 65em) {
+  .ciudad img {
+    width: 1.6em;
+    height: 1.2em;
+    border-radius: 0.4em;
+  }
+}
+.ciudad::before {
+  content: "";
+  position: absolute;
+  top: 28%;
+  background-image: url(/images/chevron-down-solid.svg?42674655f95e06d743d5ed5131b15222);
+  background-repeat: no-repeat;
+  width: 0.8em;
+  height: 0.8em;
+  right: 0%;
+}
+.ciudad .listaCiudades {
+  height: 0vh;
+  opacity: 0;
+  transition: 1s;
+  overflow: hidden;
+}
+@media (min-width: 65em) {
+  .ciudad .listaCiudades.mostrarListaCiudades {
+    display: block;
+    position: absolute;
+    height: auto;
+    max-height: 40vh;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    top: 5vh;
+    left: 0;
+    background: #603e85;
+    width: 15em;
+    border-radius: 0 0 1em 1em;
+    z-index: 5;
+    opacity: 1;
+  }
+  .ciudad .listaCiudades.mostrarListaCiudades::-webkit-scrollbar {
+    display: none;
+  }
+  .ciudad .listaCiudades.mostrarListaCiudades li {
+    color: #fff;
+    font-weight: bolder;
+    padding: 0 0.5em 0.8em 0.5em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  }
+  .ciudad .listaCiudades.mostrarListaCiudades li:first-child {
+    padding-top: 0.5em;
   }
 }

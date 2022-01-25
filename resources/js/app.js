@@ -1,15 +1,48 @@
 require('./bootstrap');
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    animarHamburguesa();
-});
-//hamburguesa.addEventListener('', console.log('Hola'));
+
+// animarHamburguesa();
+// mostrarCiudad()
+// buscarNecesidad();
+const hamburguesa = document.querySelector('.hamburguesa');
+const formulario = document.querySelector('#formulario');
+const ciudad = document.querySelector('.ciudad')
+
+
+hamburguesa.addEventListener('click', animarHamburguesa);
+formulario.addEventListener('submit', buscarNecesidad);
+ciudad.addEventListener('click', mostrarCiudad);
 
 function animarHamburguesa() {
-    const hamburguesa = document.querySelector('.hamburguesa');
-    hamburguesa.addEventListener('click', () => { 
-        hamburguesa.classList.toggle('hamburguesaActiva')
-    });
+    hamburguesa.classList.toggle('hamburguesaActiva');
 }
 
+function mostrarCiudad() {
+    ciudad.classList.toggle('ciudadesActivas')
+}
+
+function buscarNecesidad(e) {
+    e.preventDefault()
+
+    // Trae lo que ha escrito el usuario en el input.
+    const inputFormulario = document.querySelector('.necesidad').value;
+
+    // Validar formulario
+    if(inputFormulario === '') {
+        Swal.fire({
+            icon: 'error',
+            title: 'No has escrito nada &#128542;',
+            text: '¡Pero vuelve a intentarlo!',
+            timer: 3000,
+            timerProgressBar: true,
+            footer: 'Copyright &copy; 2021 LAIKA - Derechos reservados',
+            confirmButtonText: '¡Vamos!'
+        })
+
+        return;
+    }
+
+    console.log(`Bien hecho, has escrito: ${inputFormulario}`);
+
+}

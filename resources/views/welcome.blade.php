@@ -8,8 +8,6 @@
     <!-- Fonts -->
     <link href="http://fonts.cdnfonts.com/css/armarialbold" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <script src="{{ asset('js/app.js') }}"></script>
-
 </head>
 
 <body>
@@ -19,20 +17,30 @@
                 <div class="lineaCentral"></div>
                 <div class="lineas"></div>
             </div>
-            
+
             <div class="imagen">
                 <img src="{{ asset('img/LaikaMascotas.svg')}} " alt="laikaMascotas">
                 <h1 class="nombre">LAIKA</h1>
             </div>
+
             <div class="ciudad">
-                <img src="{{ asset('img/shopping-cart-solid.svg')}} " alt="laikaMascotas">
+                <img src="{{ asset('img/flag_of_colombia.svg')}}" alt="flag">
+                <p>Bog</p>
             </div>
+
             <div class="carrito">
                 <img src="{{ asset('img/shopping-cart-solid.svg')}} " alt="laikaMascotas">
             </div>
-            <input type="text" placeholder="¿Qué necesita tu mascota?" src="{{ asset('img/search-solid.svg')}} ">
+            <div class="input">
+                <form action="" id="formulario">
+                    <input type="text" class="necesidad" placeholder="¿Qué necesita tu mascota?">
+                    <input type="submit" class="enviarNecesidad" value="" href="#"></input>
+                </form>
+            </div>
         </div>
     </header>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

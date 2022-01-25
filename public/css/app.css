@@ -418,11 +418,21 @@ template {
   align-items: center;
   justify-content: space-between;
 }
+@media (min-width: 65em) {
+  .header .contenedor {
+    justify-content: flex-start;
+  }
+}
 .header .contenedor .hamburguesa {
   position: relative;
   width: 9%;
   height: 1.6em;
   cursor: pointer;
+}
+@media (min-width: 65em) {
+  .header .contenedor .hamburguesa {
+    display: none;
+  }
 }
 .header .contenedor .hamburguesa .lineaCentral {
   position: absolute;
@@ -479,17 +489,73 @@ template {
   flex-direction: column;
   align-items: center;
 }
+@media (min-width: 65em) {
+  .header .contenedor .imagen {
+    width: 5%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    order: 1;
+  }
+}
 .header .contenedor .imagen img {
   width: 2.625em;
+}
+@media (min-width: 65em) {
+  .header .contenedor .imagen img {
+    width: 3.5em;
+  }
 }
 .header .contenedor .imagen .nombre {
   font-family: "Armarialbold";
   font-size: 0.6em;
   margin: 0;
   color: #fff;
+  text-align: center;
+}
+@media (min-width: 65em) {
+  .header .contenedor .imagen .nombre {
+    width: 3.625em;
+    font-size: 0.9em;
+  }
 }
 .header .contenedor .ciudad {
-  width: 8%;
+  display: none;
+}
+@media (min-width: 65em) {
+  .header .contenedor .ciudad {
+    order: 3;
+    display: flex;
+    align-items: center;
+    padding-left: 2em;
+    width: auto;
+    position: relative;
+    cursor: pointer;
+  }
+}
+.header .contenedor .ciudad p {
+  color: #fff;
+  font-size: 1em;
+  margin: 0;
+  margin-left: 0.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+@media (min-width: 65em) {
+  .header .contenedor .ciudad img {
+    width: 1.6em;
+    height: 1.2em;
+    border-radius: 0.4em;
+  }
+}
+.header .contenedor .ciudad::before {
+  content: "";
+  position: absolute;
+  top: 28%;
+  background-image: url(/images/chevron-down-solid.svg?42674655f95e06d743d5ed5131b15222);
+  background-repeat: no-repeat;
+  width: 0.8em;
+  height: 0.8em;
+  right: -20%;
 }
 .header .contenedor .carrito {
   width: 8%;
@@ -497,6 +563,20 @@ template {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+@media (min-width: 65em) {
+  .header .contenedor .carrito {
+    order: 4;
+    justify-content: flex-end;
+    flex-grow: 1;
+  }
+}
+@media (min-width: 65em) {
+  .header .contenedor .carrito img {
+    width: 1.6em;
+    height: 1.6em;
+  }
 }
 .header .contenedor .carrito::before {
   content: "0";
@@ -518,9 +598,51 @@ template {
   justify-content: center;
   align-items: center;
 }
-.header .contenedor input {
+@media (min-width: 65em) {
+  .header .contenedor .carrito::before {
+    left: 99%;
+    min-width: 1.5em;
+    width: 1.5em;
+    min-height: 1.5em;
+    height: 1.5em;
+  }
+}
+.header .contenedor .input {
   width: 98%;
-  border-radius: 0.5em;
   height: 2em;
   margin-top: 0.5em;
+  position: relative;
+}
+@media (min-width: 65em) {
+  .header .contenedor .input {
+    width: 35%;
+    order: 2;
+    height: 2.5em;
+    margin-left: 2em;
+    margin-top: 0;
+  }
+}
+.header .contenedor .input input {
+  border-radius: 0.5em;
+  height: 2em;
+  width: 100%;
+}
+@media (min-width: 65em) {
+  .header .contenedor .input input {
+    height: 2.5em;
+    padding-left: 0.5em;
+    font-weight: bold;
+  }
+}
+.header .contenedor .input input[type=submit] {
+  position: absolute;
+  right: 0;
+  height: 1.2em;
+  width: 1.2em;
+  top: 20%;
+  right: 0.7em;
+  border: 0px;
+  background: transparent;
+  cursor: pointer;
+  background: url(/images/search-solid.svg?e011764506c1252edc036fd5c40dff7a);
 }

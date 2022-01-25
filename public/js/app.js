@@ -2060,17 +2060,45 @@ module.exports = {
   \*****************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // animarHamburguesa();
+// mostrarCiudad()
+// buscarNecesidad();
 
-document.addEventListener('DOMContentLoaded', function () {
-  animarHamburguesa();
-}); //hamburguesa.addEventListener('', console.log('Hola'));
+
+var hamburguesa = document.querySelector('.hamburguesa');
+var formulario = document.querySelector('#formulario');
+var ciudad = document.querySelector('.ciudad');
+hamburguesa.addEventListener('click', animarHamburguesa);
+formulario.addEventListener('submit', buscarNecesidad);
+ciudad.addEventListener('click', mostrarCiudad);
 
 function animarHamburguesa() {
-  var hamburguesa = document.querySelector('.hamburguesa');
-  hamburguesa.addEventListener('click', function () {
-    hamburguesa.classList.toggle('hamburguesaActiva');
-  });
+  hamburguesa.classList.toggle('hamburguesaActiva');
+}
+
+function mostrarCiudad() {
+  ciudad.classList.toggle('ciudadesActivas');
+}
+
+function buscarNecesidad(e) {
+  e.preventDefault(); // Trae lo que ha escrito el usuario en el input.
+
+  var inputFormulario = document.querySelector('.necesidad').value; // Validar formulario
+
+  if (inputFormulario === '') {
+    Swal.fire({
+      icon: 'error',
+      title: 'No has escrito nada &#128542;',
+      text: '¡Pero vuelve a intentarlo!',
+      timer: 3000,
+      timerProgressBar: true,
+      footer: 'Copyright &copy; 2021 LAIKA - Derechos reservados',
+      confirmButtonText: '¡Vamos!'
+    });
+    return;
+  }
+
+  console.log("Bien hecho, has escrito: ".concat(inputFormulario));
 }
 
 /***/ }),

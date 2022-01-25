@@ -1,0 +1,77 @@
+.header {
+    background: $morado;
+    height: auto;
+    padding: 0.2em 1em 1em 1.375em;
+    // Contenedor de la info
+    .contenedor {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        // Icono del menu hamburguesa
+        .hamburguesa {
+            position: relative;
+            width: 9%;
+            display: flex;
+            .lineaCentral {
+                position: absolute;
+                height: 0.2em;
+                width: 100%;
+                background-color: $blanco;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 20%);
+                top: 50%;
+                border-radius: 1.5em;
+            }
+            .lineas {
+                position: relative;
+                &::before {
+                    content: "";
+                    background-color: $blanco;
+                    position: absolute;
+                    height: 0.2em;
+                    width: 100%;
+                    top: -0.5em;
+                    border-radius: 1.5em;
+                }
+                &::after {
+                    content: "";
+                    background-color: $blanco;
+                    position: absolute;
+                    height: 0.2em;
+                    width: 100%;
+                    top: 0.5em;
+                    border-radius: 1.5em;
+                }
+            }
+        }
+
+        .imagen {
+            width: 75%;
+            max-height: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            img {
+                width: 2.625em;
+            }
+            .nombre {
+                font-family: 'Armarialbold';
+                font-size: 0.6em;
+                margin: 0;
+                color: $blanco;
+            }
+        }
+        .ciudad {
+            width: 8%;
+        }
+        .carrito {
+            width: 8%;
+        }
+        input {
+            width: 98%;
+            border-radius: 0.5em;
+            height: 2em;
+        }
+    }
+}

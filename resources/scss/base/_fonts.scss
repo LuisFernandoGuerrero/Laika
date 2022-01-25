@@ -6,12 +6,8 @@
 // }
 
 @font-face {
-    font-family: Vermin;
-    src: url('/build/fonts/VerminVibes2White.otf') format('otf');
+    font-family: 'Armarialbold';
     font-style: normal;
-    font-weight: normal;
-}
-
-.hola {
-    font-family: Vermin;
+    font-weight: 400;
+    src: local('Armarialbold'), url('https://fonts.cdnfonts.com/s/13999/Armarialbold.woff') format('woff');
 }

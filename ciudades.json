@@ -1,0 +1,70 @@
+{
+    "ciudades": [
+    {
+        "nombre": "Bogota",
+        "nombreCorto": "BOG"
+    },
+    {
+        "nombre": "Cajica",
+        "nombreCorto": "CAJ"
+    },
+    {
+        "nombre": "Medellin",
+        "nombreCorto": "MED"
+    },
+    {
+        "nombre": "Cali",
+        "nombreCorto": "CAL"
+    },    {
+        "nombre": "Bucaramanga",
+        "nombreCorto": "BUC"
+    },    {
+        "nombre": "Barranquilla",
+        "nombreCorto": "BAR"
+    },    {
+        "nombre": "Pereira",
+        "nombreCorto": "PER"
+    },    {
+        "nombre": "Chia",
+        "nombreCorto": "CHI"
+    },    {
+        "nombre": "Soacha",
+        "nombreCorto": "SOA"
+    },    {
+        "nombre": "Sabaneta",
+        "nombreCorto": "SAB"
+    },    {
+        "nombre": "Envigado",
+        "nombreCorto": "ENV"
+    },    {
+        "nombre": "San Antonio de Prado",
+        "nombreCorto": "SAP"
+    },    {
+        "nombre": "Bello",
+        "nombreCorto": "BEL"
+    },    {
+        "nombre": "Caldas",
+        "nombreCorto": "CLS"
+    },    {
+        "nombre": "Itagui",
+        "nombreCorto": "ITA"
+    },    {
+        "nombre": "La Estrella",
+        "nombreCorto": "ETL"
+    },    {
+        "nombre": "Copacabana",
+        "nombreCorto": "CCB"
+    },    {
+        "nombre": "Zipaquira",
+        "nombreCorto": "ZIP"
+    },    {
+        "nombre": "Briceño",
+        "nombreCorto": "BRI"
+    },    {
+        "nombre": "Sopo",
+        "nombreCorto": "SOP"
+    },    {
+        "nombre": "Tocancipa",
+        "nombreCorto": "TOC"
+    }
+]}

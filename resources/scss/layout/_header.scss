@@ -121,7 +121,6 @@
                 position: relative;
                 cursor: pointer;
             }
-
             p {
                 color: $blanco;
                 font-size: 1em;
@@ -148,6 +147,33 @@
                 height: 0.8em;
                 right: 0%;
             }
+
+            .listaCiudades {
+                display: none;
+                &.mostrarListaCiudades {
+                    @include desktop {
+                        display: block;
+                        position: absolute;
+                        height: auto;
+                        max-height: 40vh;
+                        overflow-y: scroll;
+                        scrollbar-width: none;
+                        top: 5vh;
+                        left: 0;
+                        background: $morado;
+                        width: 15em;
+                        border-radius: 0 0 1em 1em;
+                        z-index: 5;
+                        li {
+                            color: $blanco;
+                            font-weight: bolder;
+                            padding: 0 0.5em 0.8em 0.5em;
+                            border-bottom: 1px solid rgba($negro, 0.3);
+                        }
+                    }
+                }
+            }
+            
         }
 
         .carrito {

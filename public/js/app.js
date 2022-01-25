@@ -2060,18 +2060,15 @@ module.exports = {
   \*****************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // animarHamburguesa();
-// mostrarCiudad()
-// buscarNecesidad();
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-
+document.addEventListener('DOMContentLoaded', consultarAPICiudades);
 var hamburguesa = document.querySelector('.hamburguesa');
 var formulario = document.querySelector('#formulario');
-var ciudad = document.querySelector('.ciudad');
 var navegacion = document.querySelector('.navegacion');
+var selectCiudad = document.querySelector('.listaCiudades');
 hamburguesa.addEventListener('click', animarHamburguesa);
 formulario.addEventListener('submit', buscarNecesidad);
-ciudad.addEventListener('click', mostrarCiudad);
 
 function animarHamburguesa() {
   hamburguesa.classList.toggle('hamburguesaActiva');
@@ -2086,10 +2083,6 @@ function mostrarMenu() {
   } else {
     navegacion.classList.remove('navegacionActiva');
   }
-}
-
-function mostrarCiudad() {
-  ciudad.classList.toggle('ciudadesActivas');
 }
 
 function buscarNecesidad(e) {
@@ -2111,6 +2104,26 @@ function buscarNecesidad(e) {
   }
 
   console.log("Bien hecho, has escrito: ".concat(inputFormulario));
+}
+
+function consultarAPICiudades() {
+  var url = 'http://localhost:4000/ciudades';
+  fetch(url).then(function (respuesta) {
+    return respuesta.json();
+  }).then(function (ciudades) {
+    return selectCiudades(ciudades);
+  });
+}
+
+function selectCiudades(ciudades) {
+  ciudades.forEach(function (ciudad) {
+    var nombre = ciudad.nombre,
+        nombreCorto = ciudad.nombreCorto;
+    var opcion = document.createElement('li');
+    opcion.textContent = "".concat(nombre, ", (").concat(nombreCorto, ")");
+    opcion.value = nombre;
+    selectCiudad.appendChild(opcion);
+  });
 }
 
 /***/ }),

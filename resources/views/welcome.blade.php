@@ -30,8 +30,11 @@
             </div>
 
             <div class="ciudad">
+
                 <img src="{{ asset('img/flag_of_colombia.svg')}}" alt="flag">
                 <p>Bog</p>
+
+                <ul class="listaCiudades"></ul>
             </div>
 
             <div class="carrito">

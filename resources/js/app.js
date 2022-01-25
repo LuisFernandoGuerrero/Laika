@@ -1,19 +1,14 @@
 require('./bootstrap');
+document.addEventListener('DOMContentLoaded', consultarAPICiudades)
 
-
-
-// animarHamburguesa();
-// mostrarCiudad()
-// buscarNecesidad();
 const hamburguesa = document.querySelector('.hamburguesa');
 const formulario = document.querySelector('#formulario');
-const ciudad = document.querySelector('.ciudad')
 const navegacion = document.querySelector('.navegacion')
-
+const selectCiudad = document.querySelector('.listaCiudades')
 
 hamburguesa.addEventListener('click', animarHamburguesa);
 formulario.addEventListener('submit', buscarNecesidad);
-ciudad.addEventListener('click', mostrarCiudad);
+
 
 function animarHamburguesa() {
     hamburguesa.classList.toggle('hamburguesaActiva');
@@ -31,10 +26,6 @@ function mostrarMenu() {
     }
 }
 
-function mostrarCiudad() {
-    ciudad.classList.toggle('ciudadesActivas')
-}
-
 function buscarNecesidad(e) {
     e.preventDefault()
 
@@ -42,7 +33,7 @@ function buscarNecesidad(e) {
     const inputFormulario = document.querySelector('.necesidad').value;
 
     // Validar formulario
-    if(inputFormulario === '') {
+    if (inputFormulario === '') {
         Swal.fire({
             icon: 'error',
             title: 'No has escrito nada &#128542;',
@@ -58,4 +49,23 @@ function buscarNecesidad(e) {
 
     console.log(`Bien hecho, has escrito: ${inputFormulario}`);
 
+}
+
+function consultarAPICiudades() {
+    const url = 'http://localhost:4000/ciudades';
+
+    fetch(url)
+        .then(respuesta => respuesta.json())
+        .then(ciudades => selectCiudades(ciudades))
+}
+
+function selectCiudades(ciudades) {
+    ciudades.forEach(ciudad => {
+        const { nombre, nombreCorto } = ciudad;
+        
+        const opcion = document.createElement('li')
+        opcion.textContent = `${nombre}, (${nombreCorto})`;
+        opcion.value = nombre;
+        selectCiudad.appendChild(opcion)
+    });
 }

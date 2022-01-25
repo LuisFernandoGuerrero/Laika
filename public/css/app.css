@@ -557,6 +557,31 @@ template {
   height: 0.8em;
   right: 0%;
 }
+.header .contenedor .ciudad .listaCiudades {
+  display: none;
+}
+@media (min-width: 65em) {
+  .header .contenedor .ciudad .listaCiudades.mostrarListaCiudades {
+    display: block;
+    position: absolute;
+    height: auto;
+    max-height: 40vh;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    top: 5vh;
+    left: 0;
+    background: #603e85;
+    width: 15em;
+    border-radius: 0 0 1em 1em;
+    z-index: 5;
+  }
+  .header .contenedor .ciudad .listaCiudades.mostrarListaCiudades li {
+    color: #fff;
+    font-weight: bolder;
+    padding: 0 0.5em 0.8em 0.5em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  }
+}
 .header .contenedor .carrito {
   width: 8%;
   position: relative;

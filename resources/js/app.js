@@ -8,6 +8,7 @@ require('./bootstrap');
 const hamburguesa = document.querySelector('.hamburguesa');
 const formulario = document.querySelector('#formulario');
 const ciudad = document.querySelector('.ciudad')
+const navegacion = document.querySelector('.navegacion')
 
 
 hamburguesa.addEventListener('click', animarHamburguesa);
@@ -16,6 +17,18 @@ ciudad.addEventListener('click', mostrarCiudad);
 
 function animarHamburguesa() {
     hamburguesa.classList.toggle('hamburguesaActiva');
+
+    mostrarMenu();
+}
+
+function mostrarMenu() {
+    const hamburguesaActiva = document.querySelector('.hamburguesaActiva');
+
+    if (hamburguesaActiva) {
+        navegacion.classList.add('navegacionActiva')
+    } else {
+        navegacion.classList.remove('navegacionActiva')
+    }
 }
 
 function mostrarCiudad() {

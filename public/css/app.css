@@ -410,7 +410,7 @@ template {
 .header {
   background: #603e85;
   height: auto;
-  padding: 0.2em 1em 1em 1.375em;
+  padding: 0.5em 1em 0.4em 1.375em;
 }
 .header .contenedor {
   display: flex;
@@ -527,7 +527,7 @@ template {
     display: flex;
     align-items: center;
     padding-left: 2em;
-    width: auto;
+    width: 8em;
     position: relative;
     cursor: pointer;
   }
@@ -555,7 +555,7 @@ template {
   background-repeat: no-repeat;
   width: 0.8em;
   height: 0.8em;
-  right: -20%;
+  right: 0%;
 }
 .header .contenedor .carrito {
   width: 8%;
@@ -563,7 +563,6 @@ template {
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
 }
 @media (min-width: 65em) {
   .header .contenedor .carrito {
@@ -576,6 +575,7 @@ template {
   .header .contenedor .carrito img {
     width: 1.6em;
     height: 1.6em;
+    cursor: pointer;
   }
 }
 .header .contenedor .carrito::before {
@@ -645,4 +645,164 @@ template {
   background: transparent;
   cursor: pointer;
   background: url(/images/search-solid.svg?e011764506c1252edc036fd5c40dff7a);
+}
+
+.subHeader {
+  display: none;
+}
+@media (min-width: 65em) {
+  .subHeader {
+    height: auto;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.1em 0;
+  }
+  .subHeader p {
+    margin: 0;
+    font-size: 0.7em;
+    font-weight: bolder;
+    padding: 0 6em;
+  }
+}
+
+.navegacion {
+  height: 70vh;
+  transform: translateX(-300%);
+  opacity: 0;
+  transition: 1s;
+}
+.navegacion.navegacionActiva {
+  transform: translateX(0%);
+  opacity: 1;
+}
+@media (min-width: 65em) {
+  .navegacion {
+    transform: translateX(0%);
+    opacity: 1;
+    height: auto;
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
+@media (min-width: 65em) {
+  .navegacion nav {
+    width: 80%;
+  }
+}
+@media (min-width: 65em) {
+  .navegacion nav .lista {
+    display: flex;
+    flex-basis: 4em;
+  }
+}
+.navegacion nav .lista li {
+  display: flex;
+  height: 3em;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  width: 100%;
+  padding: 1.5em 0.7em;
+  transition: 0.5s;
+  position: relative;
+  cursor: pointer;
+}
+@media (min-width: 65em) {
+  .navegacion nav .lista li {
+    border-bottom: 0;
+  }
+}
+.navegacion nav .lista li:hover {
+  color: #603e85;
+}
+.navegacion nav .lista li:hover::before {
+  -webkit-animation: animarFlechasAbajo 1s infinite;
+          animation: animarFlechasAbajo 1s infinite;
+}
+.navegacion nav .lista li::before {
+  content: "";
+  position: absolute;
+  background: url(/images/chevron.svg?4acc1d73729f0d9dfc2d4428df700c95);
+  background-repeat: no-repeat;
+  height: 1em;
+  width: 1em;
+  top: 35%;
+  right: 3%;
+  -webkit-animation: animarFlechas 1s infinite;
+          animation: animarFlechas 1s infinite;
+}
+@-webkit-keyframes animarFlechas {
+  0% {
+    transform: rotate(270deg) translateY(0);
+  }
+  50% {
+    transform: rotate(270deg) translateY(20%);
+  }
+  100% {
+    transform: rotate(270deg) translateY(0);
+  }
+}
+@keyframes animarFlechas {
+  0% {
+    transform: rotate(270deg) translateY(0);
+  }
+  50% {
+    transform: rotate(270deg) translateY(20%);
+  }
+  100% {
+    transform: rotate(270deg) translateY(0);
+  }
+}
+@media (min-width: 65em) {
+  .navegacion nav .lista li::before {
+    -webkit-animation: none;
+            animation: none;
+  }
+  @-webkit-keyframes animarFlechasAbajo {
+    0% {
+      transform: rotate(0) translateY(0);
+    }
+    50% {
+      transform: rotate(0) translateY(20%);
+    }
+    100% {
+      transform: rotate(0) translateY(0);
+    }
+  }
+  @keyframes animarFlechasAbajo {
+    0% {
+      transform: rotate(0) translateY(0);
+    }
+    50% {
+      transform: rotate(0) translateY(20%);
+    }
+    100% {
+      transform: rotate(0) translateY(0);
+    }
+  }
+}
+.navegacion nav .lista li img {
+  height: 2.5em;
+  width: 3em;
+  border-radius: 0.5em;
+}
+@media (min-width: 65em) {
+  .navegacion nav .lista li img {
+    width: 2.5em;
+  }
+}
+.navegacion nav .lista li p {
+  flex-grow: 1;
+  margin: 0;
+  padding-left: 0.7em;
+  font-size: 1em;
+  font-weight: bold;
+}
+@media (min-width: 65em) {
+  .navegacion nav .lista li p {
+    width: 20%;
+  }
 }

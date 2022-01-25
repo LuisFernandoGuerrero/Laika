@@ -2068,12 +2068,24 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // animar
 var hamburguesa = document.querySelector('.hamburguesa');
 var formulario = document.querySelector('#formulario');
 var ciudad = document.querySelector('.ciudad');
+var navegacion = document.querySelector('.navegacion');
 hamburguesa.addEventListener('click', animarHamburguesa);
 formulario.addEventListener('submit', buscarNecesidad);
 ciudad.addEventListener('click', mostrarCiudad);
 
 function animarHamburguesa() {
   hamburguesa.classList.toggle('hamburguesaActiva');
+  mostrarMenu();
+}
+
+function mostrarMenu() {
+  var hamburguesaActiva = document.querySelector('.hamburguesaActiva');
+
+  if (hamburguesaActiva) {
+    navegacion.classList.add('navegacionActiva');
+  } else {
+    navegacion.classList.remove('navegacionActiva');
+  }
 }
 
 function mostrarCiudad() {

@@ -1,0 +1,108 @@
+.navegacion {
+    height: 70vh;
+    transform: translateX(-300%);
+    opacity: 0;
+    transition: 1s;
+    &.navegacionActiva {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+
+    @include desktop {
+        transform: translateX(0%);
+        opacity: 1;
+        height: auto;
+        display: inline-flex;
+        justify-content: center;
+        width: 100%;
+        border-bottom: 1px solid rgba($negro, 0.1);
+    }
+
+    nav {
+        @include desktop {
+            width: 80%;
+        }
+        .lista {
+            @include desktop {
+                display: flex;
+                flex-basis: 4em;
+            }
+            li {
+                display: flex;
+                height: 3em;
+                align-items: center;
+                border-bottom: 1px solid rgba($negro, 0.3);
+                width: 100%;
+                padding: 1.5em 0.7em;
+                transition: 0.5s;
+                position: relative;
+                cursor: pointer;
+                @include desktop {
+                    border-bottom: 0;
+                }
+                &:hover {
+                    color: $morado;
+                    &::before {
+                        animation: animarFlechasAbajo 1s infinite;
+                    }
+                }
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    background: url("../../../public/img/chevron.svg");
+                    background-repeat: no-repeat;
+                    height: 1em;
+                    width: 1em;
+                    top: 35%;
+                    right: 3%;
+                    animation: animarFlechas 1s infinite;
+                    @keyframes animarFlechas {
+                        0% {
+                            transform: rotate(270deg) translateY(0);
+                        }
+                        50% {
+                            transform: rotate(270deg) translateY(20%);
+                        }
+                        100% {
+                            transform: rotate(270deg) translateY(0);
+                        }
+                    }
+                    @include desktop {
+                        animation: none;
+                        @keyframes animarFlechasAbajo {
+                            0% {
+                                transform: rotate(0) translateY(0);
+                            }
+                            50% {
+                                transform: rotate(0) translateY(20%);
+                            }
+                            100% {
+                                transform: rotate(0) translateY(0);
+                            }
+                        }
+                    }
+                }
+
+                img {
+                    height: 2.5em;
+                    width: 3em;
+                    border-radius: 0.5em;
+                    @include desktop {
+                        width: 2.5em;
+                    }
+                }
+                p {
+                    flex-grow: 1;
+                    margin: 0;
+                    padding-left: 0.7em;
+                    font-size: 1em;
+                    font-weight: bold;
+                    @include desktop {
+                        width: 20%;
+                    }
+                }
+            }
+        }
+    }
+}

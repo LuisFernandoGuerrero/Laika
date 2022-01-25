@@ -1,8 +1,12 @@
 .header {
     background: $morado;
     height: auto;
-    padding: 0.2em 1em 1em 1.375em;
+    padding: 0.5em 1em 0.4em 1.375em;
+    
     // Contenedor de la info
+    @include desktop {
+        
+    }
     .contenedor {
         display: flex;
         flex-wrap: wrap;
@@ -106,7 +110,6 @@
             }
         }
 
-
         .ciudad {
             display: none;
             @include desktop {
@@ -114,7 +117,7 @@
                 display: flex;
                 align-items: center;
                 padding-left: 2em;
-                width: auto;
+                width: 8em;
                 position: relative;
                 cursor: pointer;
             }
@@ -143,11 +146,9 @@
                 background-repeat: no-repeat;
                 width: 0.8em;
                 height: 0.8em;
-                right: -20%;
+                right: 0%;
             }
         }
-
-
 
         .carrito {
             width: 8%;
@@ -155,7 +156,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            cursor: pointer;
+
             @include desktop {
                 order: 4;
                 justify-content: flex-end;
@@ -165,6 +166,7 @@
                 @include desktop {
                     width: 1.6em;
                     height: 1.6em;
+                    cursor: pointer;
                 }
             }
 
@@ -212,14 +214,14 @@
                 border-radius: 0.5em;
                 height: 2em;
                 width: 100%;
-                
+
                 @include desktop {
                     height: 2.5em;
                     padding-left: 0.5em;
                     font-weight: bold;
                 }
             }
-            input[type=submit] {
+            input[type="submit"] {
                 position: absolute;
                 right: 0;
                 height: 1.2em;
@@ -231,6 +233,24 @@
                 cursor: pointer;
                 background: url("../../../public/img/search-solid.svg");
             }
+        }
+    }
+}
+
+.subHeader {
+    display: none;
+    @include desktop {
+        height: auto;
+        background-color: $negro;
+        color: $blanco;
+        display: flex;
+        justify-content: space-between;
+        padding: 0.1em 0;
+        p {
+            margin: 0;
+            font-size: 0.7em;
+            font-weight: bolder;
+            padding: 0 6em;
         }
     }
 }

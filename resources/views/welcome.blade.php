@@ -16,8 +16,10 @@
     <header class="header">
         <div class="contenedor">
             <div class="hamburguesa">
-                <div class="lineaCentral lineas"></div>
+                <div class="lineaCentral"></div>
+                <div class="lineas"></div>
             </div>
+            
             <div class="imagen">
                 <img src="{{ asset('img/LaikaMascotas.svg')}} " alt="laikaMascotas">
                 <h1 class="nombre">LAIKA</h1>
@@ -28,7 +30,7 @@
             <div class="carrito">
                 <img src="{{ asset('img/shopping-cart-solid.svg')}} " alt="laikaMascotas">
             </div>
-            <input type="text" placeholder="¿Qué necesita tu mascota?">
+            <input type="text" placeholder="¿Qué necesita tu mascota?" src="{{ asset('img/search-solid.svg')}} ">
         </div>
     </header>
 </body>

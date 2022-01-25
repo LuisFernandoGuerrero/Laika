@@ -2062,6 +2062,17 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+document.addEventListener('DOMContentLoaded', function () {
+  animarHamburguesa();
+}); //hamburguesa.addEventListener('', console.log('Hola'));
+
+function animarHamburguesa() {
+  var hamburguesa = document.querySelector('.hamburguesa');
+  hamburguesa.addEventListener('click', function () {
+    hamburguesa.classList.toggle('hamburguesaActiva');
+  });
+}
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

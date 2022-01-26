@@ -613,7 +613,7 @@ template {
   height: 1.8em;
   left: 1%;
   background: transparent;
-  background-image: url("/build/img/search-solid.svg");
+  background: url(/images/search-solid.svg?e011764506c1252edc036fd5c40dff7a);
   background-repeat: no-repeat;
 }
 

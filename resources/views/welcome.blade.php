@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{{ asset('img/laikaMascotas.svg') }}" type="image/x-icon">
     <title>LAIKA</title>
     <!-- Fonts -->
     <link href="http://fonts.cdnfonts.com/css/armarialbold" rel="stylesheet">

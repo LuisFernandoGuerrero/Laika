@@ -1,4 +1,4 @@
-require('./bootstrap');
+require ('./bootstrap');
 const hamburguesa = document.querySelector('.hamburguesa');
 const navegacion = document.querySelector('.navegacion');
 const listaCiudades = document.querySelector('.listaCiudades');

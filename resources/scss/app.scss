@@ -4,8 +4,19 @@
 @import 'base/globales';
 @import 'base/normalize';
 
+@import 'layout/subheader';
+@import 'layout/hamburguesa';
+@import 'layout/estrellas';
+
 @import 'layout/header';
 @import 'layout/menuResponsive';
 @import 'layout/ciudad';
+@import 'layout/navegacion';
+@import 'layout/carousel';
+@import 'layout/categorias';
+@import 'layout/marcasDestacadas';
+@import 'layout/productos';
+@import 'layout/testimonial';
 @import 'layout/footer';
+@import 'layout/postFooter';
 

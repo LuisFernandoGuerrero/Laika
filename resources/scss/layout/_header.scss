@@ -1,216 +1,252 @@
 .header {
-    background: $morado;
     height: auto;
-    padding: 0.5em 1em 0.4em 1.375em;
-    
-    // Contenedor de la info
+    background: $morado;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    flex-direction: column-reverse;
     @include desktop {
-        
+        flex-direction: row;
     }
-    .contenedor {
+    .contenedorIzquierdo {
+        width: 100%;
         display: flex;
-        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        padding-left: 0.5em;
+        padding-right: 1.5em;
+        @include desktop {
+            width: 60%;
+            justify-content: start;
+        }
+    }
+
+    .contenedorDerecho {
+        width: 90%;
+        display: flex;
         align-items: center;
         justify-content: space-between;
+
         @include desktop {
-            justify-content: flex-start;
-        }
-        // Icono del menu hamburguesa
-
-        .hamburguesa {
-            position: relative;
-            width: 9%;
-            height: 1.6em;
-            cursor: pointer;
-            @include desktop {
-                display: none;
-            }
-
-            .lineaCentral {
-                position: absolute;
-                height: 0.2em;
-                width: 100%;
-                background-color: $blanco;
-                border-radius: 1.5em;
-                top: 40%;
-                transition: 1s;
-                transform: translateX(0%);
-                opacity: 1;
-            }
-            .lineas {
-                width: 100%;
-                height: 100%;
-                &::before {
-                    content: "";
-                    background-color: $blanco;
-                    position: absolute;
-                    height: 0.2em;
-                    width: 100%;
-                    top: 0;
-                    border-radius: 1.5em;
-                    transition: 1s;
-                }
-                &::after {
-                    content: "";
-                    background-color: $blanco;
-                    position: absolute;
-                    height: 0.2em;
-                    width: 100%;
-                    bottom: 0;
-                    border-radius: 1.5em;
-                    transition: 1s;
-                }
-            }
-            &.hamburguesaActiva {
-                .lineaCentral {
-                    transform: translateX(-300%);
-                    opacity: 0;
-                }
-                .lineas {
-                    &::before {
-                        top: 50%;
-                        transform: rotate(45deg);
-                    }
-                    &::after {
-                        bottom: 35%;
-                        transform: rotate(-45deg);
-                    }
-                }
-            }
-        }
-        .imagen {
-            width: 75%;
-            max-height: 100%;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
-            @include desktop {
-                width: 5%;
-                justify-content: flex-start;
-                align-items: flex-start;
-                order: 1;
-            }
-            img {
-                width: 2.625em;
-                @include desktop {
-                    width: 3.5em;
-                }
-            }
-            .nombre {
-                font-family: "Armarialbold";
-                font-size: 0.6em;
-                margin: 0;
-                color: $blanco;
-                text-align: center;
-                @include desktop {
-                    width: 3.625em;
-                    font-size: 0.9em;
-                }
-            }
-        }
-
-        .carrito {
-            width: 8%;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            @include desktop {
-                order: 4;
-                justify-content: flex-end;
-                flex-grow: 1;
-            }
-            img {
-                @include desktop {
-                    width: 1.6em;
-                    height: 1.6em;
-                    cursor: pointer;
-                }
-            }
-
-            &::before {
-                content: "0";
-                position: absolute;
-                min-width: 1.3em;
-                width: 1.3em;
-                min-height: 1.3em;
-                height: 1.3em;
-                background: chocolate;
-                border-radius: 100%;
-                color: $blanco;
-                font-size: 0.7em;
-                text-align: center;
-                align-self: center;
-                align-content: center;
-                top: -0.5em;
-                left: 50%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                @include desktop {
-                    left: 99%;
-                    min-width: 1.5em;
-                    width: 1.5em;
-                    min-height: 1.5em;
-                    height: 1.5em;
-                }
-            }
-        }
-        .input {
-            width: 98%;
-            height: 2em;
-            margin-top: 0.5em;
-            position: relative;
-            @include desktop {
-                width: 35%;
-                order: 2;
-                height: 2.5em;
-                margin-left: 2em;
-                margin-top: 0;
-            }
-            input {
-                border-radius: 0.5em;
-                height: 2em;
-                width: 100%;
-
-                @include desktop {
-                    height: 2.5em;
-                    padding-left: 0.5em;
-                    font-weight: bold;
-                }
-            }
-            input[type="submit"] {
-                position: absolute;
-                right: 0;
-                height: 1.2em;
-                width: 1.2em;
-                top: 20%;
-                right: 0.7em;
-                border: 0px;
-                background: transparent;
-                cursor: pointer;
-                background: url("../../../public/img/search-solid.svg");
-            }
+            width: 25%;
+            justify-content: flex-end;
         }
     }
 }
 
-.subHeader {
-    display: none;
+// Div logo laika
+// Lateral Izquierdo
+.logoLaika {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 1em;
+    cursor: pointer;
+
     @include desktop {
-        height: auto;
-        background-color: $negro;
+        margin-right: 0;
+    }
+    .nombreLaika {
+        margin: 0;
+        font-weight: bold;
+        font-family: "Armarialbold";
+        text-transform: uppercase;
+        font-size: 0.7em;
         color: $blanco;
-        display: flex;
-        justify-content: space-between;
-        padding: 0.1em 0;
-        p {
-            margin: 0;
-            font-size: 0.7em;
-            font-weight: bolder;
-            padding: 0 6em;
+
+        @include desktop {
+            font-size: 0.9em;
+        }
+    }
+    img {
+        width: 2.5em;
+        @include desktop {
+            width: 3.5em;
         }
     }
 }
+
+// Input del Buscador
+.inputBuscador {
+    height: 2.5em;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    position: relative;
+
+    @include desktop {
+        width: 25%;
+        margin-left: 1em;
+    }
+
+    input {
+        height: 100%;
+        width: 100%;
+        padding-left: 2.5em;
+        border-radius: 0.6em;
+        border: 0;
+        font-size: 0.7em;
+        font-weight: bold;
+    }
+    .iconoBuscar {
+        position: absolute;
+        top: 25%;
+        width: 1.8em;
+        height: 1.8em;
+        left: 1%;
+        background: transparent;
+        background-image: url('/build/img/search-solid.svg');
+        background-repeat: no-repeat;
+    }
+}
+
+.ciudadActual {
+    display: flex;
+    flex-grow: 2;
+    display: none;
+    position: relative;
+    @include desktop {
+        display: block;
+    }
+
+    .listaCiudades {
+        position: absolute;
+        height: 0vh;
+        overflow: hidden;
+        transition: 1s;
+        top: 100%;
+        z-index: 10;
+        &.mostrarListaCiudades {
+            background: $morado;
+            z-index: 2;
+            height: 45vh;
+            max-height: 45vh;
+            overflow: scroll;
+            scrollbar-width: none;
+            border-radius: 0 0 0.5em 0.5em;
+            -webkit-box-shadow: 0px 0px 25px -25px rgba(0, 0, 0, 0.93);
+            box-shadow: 0px 0px 25px -25px rgba(0, 0, 0, 0.93);    
+        }
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        .ciudadOpcion {
+            color: $blanco;
+            font-weight: bold;
+            margin: 0.2em;
+            padding-left: 0.8em;
+            padding-right: 0.4em;
+            text-transform: capitalize;
+            border-bottom: 1px solid rgba($blanco, 0.3);
+            cursor: pointer;
+        }
+    }
+
+    .contenidoCiudadActual {
+        display: none;
+        @include desktop {
+            display: flex;
+            align-items: center;
+            margin-left: 1em;
+            width: 8em;
+            cursor: pointer;
+            img {
+                max-width: 2em;
+                max-height: 1.7em;
+            }
+            .nombreCiudad {
+                color: $blanco;
+                font-weight: bold;
+                font-size: 1em;
+                font-family: "Armarialbold";
+                margin-left: 0.3em;
+            }
+
+            .flechaAbajo {
+                width: 1em;
+                display: flex;
+                align-items: center;
+                margin-left: 0.3em;
+            }
+        }
+    }
+}
+
+// Lateral Derecho
+.cuentaCarrito {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.miCuenta {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+    margin-right: 0.5em;
+
+    @include desktop {
+        width: 70%;
+        justify-content: flex-end;
+    }
+    img {
+        width: 2em;
+        height: 2em;
+
+        @include desktop {
+            width: 3.5em;
+            height: 3.5em;
+        }
+    }
+    .textoMiCuenta {
+        display: none;
+        @include desktop {
+            display: block;
+            width: 50%;
+            color: $blanco;
+            font-weight: bold;
+            font-family: "Armarialbold";
+            text-transform: capitalize;
+            font-size: 1em;
+            margin-left: 0.7em;
+        }
+    }
+}
+
+.carrito {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    &::before {
+        content: '0';
+        position: absolute;
+        width: 1em;
+        height: 1em;
+        min-width: 1em;
+        min-height: 1em;
+        border-radius: 100%;
+        top: -0.35em;
+        right: -0.35em;
+        font-size: 1em;
+        background: chocolate;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $blanco;
+    }
+    img {
+        width: 1.8em;
+
+        @include desktop {
+            width: 2.5em;
+        }
+    }
+}
+
+

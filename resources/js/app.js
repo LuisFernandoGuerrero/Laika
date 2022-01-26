@@ -1,48 +1,53 @@
 require('./bootstrap');
-document.addEventListener('DOMContentLoaded', consultarAPICiudades)
-
 const hamburguesa = document.querySelector('.hamburguesa');
-const formulario = document.querySelector('#formulario');
 const navegacion = document.querySelector('.navegacion');
-const selectCiudad = document.querySelector('.listaCiudades');
-const ciudad = document.querySelector('.ciudad');
+const listaCiudades = document.querySelector('.listaCiudades');
+const contenidoCiudadActual = document.querySelector('.contenidoCiudadActual');
+const formulario = document.querySelector('.inputBuscador');
+var index = 1;
 
-hamburguesa.addEventListener('click', animarHamburguesa);
-formulario.addEventListener('submit', buscarNecesidad);
-ciudad.addEventListener('click', mostrarListaCiudades)
-
-function mostrarListaCiudades() {
-    selectCiudad.classList.toggle('mostrarListaCiudades');
-
-}
+document.addEventListener('DOMContentLoaded', () => {
+    consultarAPICiudades();
+    hamburguesa.addEventListener('click', animarHamburguesa)
+    contenidoCiudadActual.addEventListener('click', animarListaCiudades)
+    formulario.addEventListener('submit', validarBuscador)
+    verImagenes(index);
+})
 
 // Menu Hamburguesa
 function animarHamburguesa() {
+    // Animar hamburguesa
     hamburguesa.classList.toggle('hamburguesaActiva');
-
-    mostrarMenu();
+    // Mostrar el menu
+    navegacion.classList.toggle('navegacionActiva')
 }
 
-function mostrarMenu() {
-    const hamburguesaActiva = document.querySelector('.hamburguesaActiva');
-
-    if (hamburguesaActiva) {
-        navegacion.classList.add('navegacionActiva')
-    } else {
-        navegacion.classList.remove('navegacionActiva')
-    }
+// Ciudades
+function consultarAPICiudades() {
+    const url = 'http://localhost:4000/ciudades';
+    fetch(url)
+        .then(respuesta => respuesta.json())
+        .then(ciudades => mostrarCiudades(ciudades))
 }
-// Final Menu Hamburguesa
+function mostrarCiudades(ciudades) {
+    ciudades.forEach(ciudad => {
+        const { nombre, nombreCorto } = ciudad;
+        const ciudadOpcion = document.createElement('LI');
+        ciudadOpcion.classList.add('ciudadOpcion');
+        ciudadOpcion.textContent = `${nombre}, (${nombreCorto})`;
+        listaCiudades.appendChild(ciudadOpcion)
+    });
+}
+function animarListaCiudades() {
+    listaCiudades.classList.toggle('mostrarListaCiudades')
+}
 
-// Validación busqueda
-function buscarNecesidad(e) {
-    e.preventDefault()
+// Validar buscador
+function validarBuscador(e) {
+    e.preventDefault();
+    const buscador = document.querySelector('#buscador').value;
 
-    // Trae lo que ha escrito el usuario en el input.
-    const inputFormulario = document.querySelector('.necesidad').value;
-
-    // Validar formulario
-    if (inputFormulario === '') {
+    if (buscador === '') {
         Swal.fire({
             icon: 'error',
             title: 'No has escrito nada &#128542;',
@@ -52,33 +57,38 @@ function buscarNecesidad(e) {
             footer: 'Copyright &copy; 2021 LAIKA - Derechos reservados',
             confirmButtonText: '¡Vamos!'
         })
-
         return;
+    } else {
+        console.log(`Muy bien, escribiste: ${buscador}`);
     }
-
-    console.log(`Bien hecho, has escrito: ${inputFormulario}`);
-
-}
-// Final Validación busqueda
-
-// Consulta API de ciudades y mostrarlas en html
-function consultarAPICiudades() {
-    const url = 'http://localhost:4000/ciudades';
-
-    fetch(url)
-        .then(respuesta => respuesta.json())
-        .then(ciudades => selectCiudades(ciudades))
 }
 
-function selectCiudades(ciudades) {
-    ciudades.forEach(ciudad => {
-        const { nombre, nombreCorto } = ciudad;
-        
-        const opcion = document.createElement('li')
-        opcion.textContent = `${nombre}, (${nombreCorto})`;
-        opcion.value = nombre;
-        selectCiudad.appendChild(opcion)
-    });
+// Carousel 
+
+loop();
+
+function loop() { setTimeout(function () { verImagenes(index += 1); loop() }, 3000); }
+
+function plusSlides(n) {
+    verImagenes(index += n);
 }
 
-// Final Consulta API de ciudades y mostrarlas en html
+function currentSlide(n) {
+    verImagenes(index = n);
+}
+
+function verImagenes(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) { index = 1 }
+    if (n < 1) { index = slides.length }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace("active", "");
+    }
+    slides[index - 1].style.display = "block";
+    dots[index - 1].className += " active";
+}

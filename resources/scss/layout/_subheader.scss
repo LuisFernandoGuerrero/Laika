@@ -1,0 +1,17 @@
+.subHeader {
+    display: none;
+    @include desktop {
+        height: auto;
+        background-color: $negro;
+        color: $blanco;
+        display: flex;
+        justify-content: space-between;
+        padding: 0.1em 0;
+        p {
+            margin: 0;
+            font-size: 0.7em;
+            font-weight: bolder;
+            padding: 0 6em;
+        }
+    }
+}

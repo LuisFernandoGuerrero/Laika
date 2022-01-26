@@ -1,0 +1,51 @@
+.categorias {
+    width: 100%;
+    margin-top: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .informacionCategorias {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+    }
+    .tituloSeccionCategorias {
+        color: $morado;
+        text-align: start;
+        text-transform: capitalize;
+        font-family: "Armarialbold";
+        font-weight: bold;
+    }
+    .listaCategorias {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 2em;
+        li {
+            width: 80%;
+            border: 1px solid $morado;
+            border-radius: 0.5em;
+            padding-top: 0.5em;
+            padding-bottom: 0.5em;
+            text-align: center;
+            margin: 0.5em;
+            -webkit-box-shadow: 0px 0px 3px 2px #603e85;
+            box-shadow: 0px 0px 3px 2px #603e85;
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+            @include desktop {
+                width: 23%;
+            }
+            img {
+                width: 2em;
+                height: 2em;
+            }
+            a {
+                color: $morado;
+                margin-left: 1em;
+            }
+        }
+    }
+}

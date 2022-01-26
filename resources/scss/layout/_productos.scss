@@ -1,0 +1,161 @@
+.productos {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+    .informacionProductos {
+        height: auto;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+    }
+    .tituloSeccionProductos {
+        color: $morado;
+        text-transform: capitalize;
+        font-weight: bold;
+        text-align: start;
+    }
+}
+
+.contenedorProductos {
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+    flex-wrap: wrap;
+    width: 100%;
+
+    @include desktop {
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+}
+
+.producto {
+    height: 32em;
+    width: 16.25em;
+    border-radius: 1em;
+    padding: 0.7em;
+    padding-top: 2em;
+    padding-bottom: 0;
+    img {
+        height: 40%;
+        width: 90%;
+    }
+
+    .informacionProducto {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 50%;
+        .nombreProducto {
+            font-size: 1em;
+            color: $morado;
+            font-family: Armarialbold;
+            text-transform: capitalize;
+            line-height: 1;
+            margin-bottom: 0.5em;
+            margin-top: 0.5em;
+            min-height: 2.5em;
+        }
+
+        .precios {
+            width: 100%;
+            height: auto;
+
+            .precioNormal {
+                display: flex;
+                .precioInicial {
+                    color: $morado;
+                    font-weight: bold;
+                    margin: 0;
+                }
+                .precioInicialDescuento {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    margin-left: 0.4em;
+                    p {
+                        margin: 0;
+                        font-size: 0.7em;
+                        line-height: 1;
+                        text-transform: capitalize;
+                        &:last-child {
+                            text-decoration: line-through;
+                        }
+                    }
+                }
+            }
+            .precioLaikaMember {
+                display: flex;
+                align-items: center;
+                .precioInicial {
+                    color: $morado;
+                    font-weight: bold;
+                    margin: 0;
+                    min-width: 45%;
+                }
+                .laikaMember {
+                    width: 50%;
+                    line-height: 1.2;
+                    cursor: pointer;
+                    img {
+                        width: 100%;
+                    }
+                    a {
+                        display: block;
+                        font-size: 0.5em;
+                        width: 100%;
+                        text-transform: uppercase;
+                        text-align: center;
+                        font-weight: bold;
+                        background: $naranja;
+                        border-radius: 0.5em;
+                        color: $negro;
+                        padding-top: 0.1em;
+                        padding-bottom: 0.1em;
+                    }
+                }
+            }
+        }
+
+        .tallas {
+            margin-top: 1em;
+            .talla {
+                color: $morado;
+                display: inline-block;
+                padding: 0.2em 0.7em;
+                border-radius: 0.5em;
+                font-size: 0.9em;
+                border: 1px solid $morado;
+                cursor: pointer;
+                font-weight: bold;
+                transition: 1s;
+                &:hover {
+                    background-color: $morado;
+                    color: $blanco;
+                }
+                &.botonTallaSeleccionado {
+                    background-color: $morado;
+                    color: $blanco;
+                }
+            }
+        }
+
+        .anadirCarrito {
+            margin-top: 1em;
+            display: block;
+            button {
+                background-color: $morado;
+                display: block;
+                width: 100%;
+                padding: 0.7em 0;
+                border-radius: 0.5em;
+                border: 0px;
+                color: $blanco;
+                text-transform: capitalize;
+                cursor: pointer;
+            }
+        }
+    }
+}

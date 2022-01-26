@@ -1,0 +1,175 @@
+.footer {
+    height: auto;
+    width: 100%;
+    background: rgba($morado, 0.2);
+    margin-top: 2em;
+    @include desktop {
+        padding-right: 2em;
+        height: 45vh;
+    }
+}
+.contenidoFooter {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2em;
+    @include desktop {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        height: 100%;
+        align-content: center;
+        padding-top: 0;
+    }
+}
+
+.listaInicial {
+    .elementoLista {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: 1;
+        p {
+            margin: 0;
+            text-align: center;
+            color: $morado;
+        }
+        .nombreLaika {
+            text-transform: uppercase;
+            font-family: Armarialbold;
+            color: $negro;
+        }
+        .slogan {
+            font-size: 0.6em;
+            font-weight: bold;
+            text-transform: capitalize;
+            width: 40%;
+        }
+        img {
+            width: 5em;
+        }
+    }
+    .siguenosEn {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        p {
+            font-size: 0.8em;
+            margin: 0;
+            text-align: end;
+            font-weight: bold;
+            text-transform: capitalize;
+            color: $morado;
+            text-transform: uppercase;
+        }
+
+        .icons {
+            a {
+                margin-left: 0.5em;
+                font-size: 2em;
+                border-radius: 0.5em;
+                &:nth-child(1) {
+                    margin-left: 0;
+                }
+                i {
+                    color: $morado;
+                }
+            }
+        }
+    }
+}
+
+.navs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    border-bottom: 1px solid $morado;
+    &:last-child {
+        padding: 2em 1em;
+    }
+    @include desktop {
+        padding-bottom: 0;
+        padding-top: 0;
+        border-bottom: 0;
+        align-items: flex-start;
+        &:last-child {
+            padding: 0;
+        }
+    }
+
+    li {
+        padding: 0.2em 0;
+        text-transform: capitalize;
+        p {
+            color: $morado;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 0;
+            font-family: Armarialbold;
+            font-size: 1.2em;
+        }
+
+        a {
+            font-weight: normal;
+            color: $morado;
+            font-size: 0.8em;
+        }
+
+        .correoElectronico {
+            position: relative;
+            input[type="text"] {
+                width: 100%;
+                height: 2em;
+                margin-bottom: 0.5em;
+                border-radius: 0.5em;
+                color: $morado;
+                font-weight: bold;
+                padding-left: 1em;
+                text-transform: capitalize;
+                transition: 1s;
+                &:focus {
+                    outline: 1px solid $morado;
+                }
+                @include desktop {
+                    width: 90%;
+                }
+            }
+            input[type="submit"] {
+                width: 1.7em;
+                height: 60%;
+                position: absolute;
+                top: 10%;
+                right: 5%;
+                background-image: url("../../public/images/chevron-right-solid.svg");
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-color: $morado;
+                border: 0;
+                cursor: pointer;
+
+                @include desktop {
+                    top: 10%;
+                    right: 15%;
+                }
+            }
+        }
+
+        .terminosCondiciones {
+            line-height: 1;
+            position: relative;
+
+            input[type="checkbox"] {
+                width: 1.7em;
+            }
+            label {
+                color: $morado;
+                font-size: 0.7em;
+                font-weight: bold;
+                user-select: none;
+            }
+        }
+    }
+}

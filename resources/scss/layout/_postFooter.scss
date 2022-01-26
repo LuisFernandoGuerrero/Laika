@@ -1,0 +1,18 @@
+.postFooter {
+    height: 10vh;
+    background: rgba($morado, 0.5);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    @include desktop {
+        justify-content: space-around;
+        align-items: center;
+    }
+    img {
+        width: 30%;
+        height: 2em;
+        @include desktop {
+            width: 7em;
+        }
+    }
+}

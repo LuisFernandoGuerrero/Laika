@@ -2062,44 +2062,58 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-document.addEventListener('DOMContentLoaded', consultarAPICiudades);
 var hamburguesa = document.querySelector('.hamburguesa');
-var formulario = document.querySelector('#formulario');
 var navegacion = document.querySelector('.navegacion');
-var selectCiudad = document.querySelector('.listaCiudades');
-var ciudad = document.querySelector('.ciudad');
-hamburguesa.addEventListener('click', animarHamburguesa);
-formulario.addEventListener('submit', buscarNecesidad);
-ciudad.addEventListener('click', mostrarListaCiudades);
-
-function mostrarListaCiudades() {
-  selectCiudad.classList.toggle('mostrarListaCiudades');
-} // Menu Hamburguesa
-
+var listaCiudades = document.querySelector('.listaCiudades');
+var contenidoCiudadActual = document.querySelector('.contenidoCiudadActual');
+var formulario = document.querySelector('.inputBuscador');
+var index = 1;
+document.addEventListener('DOMContentLoaded', function () {
+  consultarAPICiudades();
+  hamburguesa.addEventListener('click', animarHamburguesa);
+  contenidoCiudadActual.addEventListener('click', animarListaCiudades);
+  formulario.addEventListener('submit', validarBuscador);
+  verImagenes(index);
+}); // Menu Hamburguesa
 
 function animarHamburguesa() {
-  hamburguesa.classList.toggle('hamburguesaActiva');
-  mostrarMenu();
+  // Animar hamburguesa
+  hamburguesa.classList.toggle('hamburguesaActiva'); // Mostrar el menu
+
+  navegacion.classList.toggle('navegacionActiva');
+} // Ciudades
+
+
+function consultarAPICiudades() {
+  var url = 'http://localhost:4000/ciudades';
+  fetch(url).then(function (respuesta) {
+    return respuesta.json();
+  }).then(function (ciudades) {
+    return mostrarCiudades(ciudades);
+  });
 }
 
-function mostrarMenu() {
-  var hamburguesaActiva = document.querySelector('.hamburguesaActiva');
+function mostrarCiudades(ciudades) {
+  ciudades.forEach(function (ciudad) {
+    var nombre = ciudad.nombre,
+        nombreCorto = ciudad.nombreCorto;
+    var ciudadOpcion = document.createElement('LI');
+    ciudadOpcion.classList.add('ciudadOpcion');
+    ciudadOpcion.textContent = "".concat(nombre, ", (").concat(nombreCorto, ")");
+    listaCiudades.appendChild(ciudadOpcion);
+  });
+}
 
-  if (hamburguesaActiva) {
-    navegacion.classList.add('navegacionActiva');
-  } else {
-    navegacion.classList.remove('navegacionActiva');
-  }
-} // Final Menu Hamburguesa
-// Validación busqueda
+function animarListaCiudades() {
+  listaCiudades.classList.toggle('mostrarListaCiudades');
+} // Validar buscador
 
 
-function buscarNecesidad(e) {
-  e.preventDefault(); // Trae lo que ha escrito el usuario en el input.
+function validarBuscador(e) {
+  e.preventDefault();
+  var buscador = document.querySelector('#buscador').value;
 
-  var inputFormulario = document.querySelector('.necesidad').value; // Validar formulario
-
-  if (inputFormulario === '') {
+  if (buscador === '') {
     Swal.fire({
       icon: 'error',
       title: 'No has escrito nada &#128542;',
@@ -2110,32 +2124,53 @@ function buscarNecesidad(e) {
       confirmButtonText: '¡Vamos!'
     });
     return;
+  } else {
+    console.log("Muy bien, escribiste: ".concat(buscador));
   }
-
-  console.log("Bien hecho, has escrito: ".concat(inputFormulario));
-} // Final Validación busqueda
-// Consulta API de ciudades y mostrarlas en html
+} // Carousel 
 
 
-function consultarAPICiudades() {
-  var url = 'http://localhost:4000/ciudades';
-  fetch(url).then(function (respuesta) {
-    return respuesta.json();
-  }).then(function (ciudades) {
-    return selectCiudades(ciudades);
-  });
+loop();
+
+function loop() {
+  setTimeout(function () {
+    verImagenes(index += 1);
+    loop();
+  }, 3000);
 }
 
-function selectCiudades(ciudades) {
-  ciudades.forEach(function (ciudad) {
-    var nombre = ciudad.nombre,
-        nombreCorto = ciudad.nombreCorto;
-    var opcion = document.createElement('li');
-    opcion.textContent = "".concat(nombre, ", (").concat(nombreCorto, ")");
-    opcion.value = nombre;
-    selectCiudad.appendChild(opcion);
-  });
-} // Final Consulta API de ciudades y mostrarlas en html
+function plusSlides(n) {
+  verImagenes(index += n);
+}
+
+function currentSlide(n) {
+  verImagenes(index = n);
+}
+
+function verImagenes(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+
+  if (n > slides.length) {
+    index = 1;
+  }
+
+  if (n < 1) {
+    index = slides.length;
+  }
+
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace("active", "");
+  }
+
+  slides[index - 1].style.display = "block";
+  dots[index - 1].className += " active";
+}
 
 /***/ }),
 
@@ -19386,12 +19421,9 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 /*!*********************************!*\
   !*** ./resources/scss/app.scss ***!
   \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/css-loader/dist/cjs.js):\nError: Can't resolve '../public/images/chevron-right-solid.svg' in 'C:\\laragon\\www\\Laika\\resources\\scss'\n    at finishWithoutResolve (C:\\laragon\\www\\Laika\\node_modules\\enhanced-resolve\\lib\\Resolver.js:293:18)\n    at C:\\laragon\\www\\Laika\\node_modules\\enhanced-resolve\\lib\\Resolver.js:362:15\n    at C:\\laragon\\www\\Laika\\node_modules\\enhanced-resolve\\lib\\Resolver.js:410:5\n    at eval (eval at create (C:\\laragon\\www\\Laika\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:16:1)\n    at C:\\laragon\\www\\Laika\\node_modules\\enhanced-resolve\\lib\\Resolver.js:410:5\n    at eval (eval at create (C:\\laragon\\www\\Laika\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:27:1)\n    at C:\\laragon\\www\\Laika\\node_modules\\enhanced-resolve\\lib\\DescriptionFilePlugin.js:87:43\n    at C:\\laragon\\www\\Laika\\node_modules\\enhanced-resolve\\lib\\Resolver.js:410:5\n    at eval (eval at create (C:\\laragon\\www\\Laika\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:15:1)\n    at C:\\laragon\\www\\Laika\\node_modules\\enhanced-resolve\\lib\\Resolver.js:410:5\n    at processResult (C:\\laragon\\www\\Laika\\node_modules\\webpack\\lib\\NormalModule.js:753:19)\n    at C:\\laragon\\www\\Laika\\node_modules\\webpack\\lib\\NormalModule.js:855:5\n    at C:\\laragon\\www\\Laika\\node_modules\\loader-runner\\lib\\LoaderRunner.js:399:11\n    at C:\\laragon\\www\\Laika\\node_modules\\loader-runner\\lib\\LoaderRunner.js:251:18\n    at context.callback (C:\\laragon\\www\\Laika\\node_modules\\loader-runner\\lib\\LoaderRunner.js:124:13)\n    at Object.loader (C:\\laragon\\www\\Laika\\node_modules\\css-loader\\dist\\index.js:155:5)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)");
 
 /***/ }),
 
@@ -19629,42 +19661,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = __webpack_modules__;
-/******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/chunk loaded */
-/******/ 	(() => {
-/******/ 		var deferred = [];
-/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
-/******/ 			if(chunkIds) {
-/******/ 				priority = priority || 0;
-/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
-/******/ 				deferred[i] = [chunkIds, fn, priority];
-/******/ 				return;
-/******/ 			}
-/******/ 			var notFulfilled = Infinity;
-/******/ 			for (var i = 0; i < deferred.length; i++) {
-/******/ 				var [chunkIds, fn, priority] = deferred[i];
-/******/ 				var fulfilled = true;
-/******/ 				for (var j = 0; j < chunkIds.length; j++) {
-/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
-/******/ 						chunkIds.splice(j--, 1);
-/******/ 					} else {
-/******/ 						fulfilled = false;
-/******/ 						if(priority < notFulfilled) notFulfilled = priority;
-/******/ 					}
-/******/ 				}
-/******/ 				if(fulfilled) {
-/******/ 					deferred.splice(i--, 1)
-/******/ 					var r = fn();
-/******/ 					if (r !== undefined) result = r;
-/******/ 				}
-/******/ 			}
-/******/ 			return result;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
 /******/ 		__webpack_require__.g = (function() {
@@ -19677,22 +19674,6 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		})();
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/node module decorator */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nmd = (module) => {
@@ -19702,68 +19683,13 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/jsonp chunk loading */
-/******/ 	(() => {
-/******/ 		// no baseURI
-/******/ 		
-/******/ 		// object to store loaded and loading chunks
-/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
-/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
-/******/ 		var installedChunks = {
-/******/ 			"/js/app": 0,
-/******/ 			"css/app": 0
-/******/ 		};
-/******/ 		
-/******/ 		// no chunk on demand loading
-/******/ 		
-/******/ 		// no prefetching
-/******/ 		
-/******/ 		// no preloaded
-/******/ 		
-/******/ 		// no HMR
-/******/ 		
-/******/ 		// no HMR manifest
-/******/ 		
-/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
-/******/ 		
-/******/ 		// install a JSONP callback for chunk loading
-/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
-/******/ 			var [chunkIds, moreModules, runtime] = data;
-/******/ 			// add "moreModules" to the modules object,
-/******/ 			// then flag all "chunkIds" as loaded and fire callback
-/******/ 			var moduleId, chunkId, i = 0;
-/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
-/******/ 				for(moduleId in moreModules) {
-/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
-/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
-/******/ 					}
-/******/ 				}
-/******/ 				if(runtime) var result = runtime(__webpack_require__);
-/******/ 			}
-/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
-/******/ 			for(;i < chunkIds.length; i++) {
-/******/ 				chunkId = chunkIds[i];
-/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
-/******/ 					installedChunks[chunkId][0]();
-/******/ 				}
-/******/ 				installedChunks[chunkId] = 0;
-/******/ 			}
-/******/ 			return __webpack_require__.O(result);
-/******/ 		}
-/******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
-/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
-/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
-/******/ 	})();
-/******/ 	
 /************************************************************************/
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/scss/app.scss")))
-/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	__webpack_require__("./resources/js/app.js");
+/******/ 	// This entry module doesn't tell about it's top-level declarations so it can't be inlined
+/******/ 	var __webpack_exports__ = __webpack_require__("./resources/scss/app.scss");
 /******/ 	
 /******/ })()
 ;

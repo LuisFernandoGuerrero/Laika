@@ -1,9 +1,11 @@
 .postFooter {
-    height: 10vh;
+    height: auto;
+    width: 100%;
     background: rgba($morado, 0.5);
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    padding: 1em;
     @include desktop {
         justify-content: space-around;
         align-items: center;
@@ -11,6 +13,8 @@
     img {
         width: 30%;
         height: 2em;
+        margin-top: 0.5em;
+        margin-left: 0.5em;
         @include desktop {
             width: 7em;
         }

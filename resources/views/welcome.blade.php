@@ -529,8 +529,7 @@
                 </li>
             </ul>
         </div>
-    </footer>
-    <div class="postFooter">
+        <div class="postFooter">
         <img src="{{ asset('img/mercadoPago.png') }}" alt="mercadoPago">
         <img src="{{ asset('img/mastercard.png') }}" alt="mastercard">
         <img src="{{ asset('img/visa.png') }}" alt="visa">
@@ -538,6 +537,8 @@
         <img src="{{ asset('img/googlePlay.png') }}" alt="google play">
         <img src="{{ asset('img/appGallery.png') }}" alt="app gallery">
     </div>
+    </footer>
+
 
 
     <script src="{{ asset('js/app.js') }}"></script>

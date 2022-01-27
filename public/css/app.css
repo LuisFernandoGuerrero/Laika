@@ -1451,7 +1451,7 @@ img {
 }
 @media (min-width: 65em) {
   .footer {
-    padding-right: 2em;
+    margin-right: 2em;
     height: 45vh;
   }
 }
@@ -1623,11 +1623,13 @@ img {
 }
 
 .postFooter {
-  height: 10vh;
+  height: auto;
+  width: 100%;
   background: rgba(96, 62, 133, 0.5);
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  padding: 1em;
 }
 @media (min-width: 65em) {
   .postFooter {
@@ -1638,6 +1640,8 @@ img {
 .postFooter img {
   width: 30%;
   height: 2em;
+  margin-top: 0.5em;
+  margin-left: 0.5em;
 }
 @media (min-width: 65em) {
   .postFooter img {

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="{{ asset('img/laikaMascotas.svg') }}" type="image/x-icon">
-    <title>LAIKA</title>
+    <title>Laika</title>
     <!-- Fonts -->
     <link href="http://fonts.cdnfonts.com/css/armarialbold" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
@@ -458,6 +458,17 @@
 
         </blockquote>
     </section>
+    <section class="flotantesFijas">
+        <div class="whatsapp">
+            <img src="{{ asset('img/whatsapp-brands.svg') }}" alt="wpp">
+        </div>
+        <div class="contacto">
+            <img src="{{ asset('img/comment-dots-solid.svg') }}" alt="wpp">
+        </div>
+        <div class="sugerencias">
+            <p>sugerencias</p>
+        </div>
+    </section>
     <footer class="footer">
         <div class="contenidoFooter">
             <ul class="listaInicial">
@@ -519,7 +530,6 @@
             </ul>
         </div>
     </footer>
-    
     <div class="postFooter">
         <img src="{{ asset('img/mercadoPago.png') }}" alt="mercadoPago">
         <img src="{{ asset('img/mastercard.png') }}" alt="mastercard">
@@ -528,6 +538,7 @@
         <img src="{{ asset('img/googlePlay.png') }}" alt="google play">
         <img src="{{ asset('img/appGallery.png') }}" alt="app gallery">
     </div>
+
 
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

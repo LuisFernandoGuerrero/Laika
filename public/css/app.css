@@ -26,6 +26,7 @@ body {
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
   color: #000;
+  position: relative;
 }
 
 .contenedor {
@@ -854,7 +855,7 @@ template {
   transition: 1s;
   background-color: #fff;
   position: absolute;
-  z-index: 1;
+  z-index: 1000;
 }
 @media (min-width: 65em) {
   .navegacion {
@@ -1641,5 +1642,57 @@ img {
 @media (min-width: 65em) {
   .postFooter img {
     width: 7em;
+  }
+}
+
+.flotantesFijas {
+  right: 2%;
+  position: fixed;
+  width: 4em;
+  height: 100%;
+  bottom: 10%;
+  z-index: 5;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+}
+.flotantesFijas div {
+  margin-top: 1em;
+}
+.flotantesFijas div img {
+  height: 2em;
+  cursor: pointer;
+}
+@media (min-width: 65em) {
+  .flotantesFijas div img {
+    height: 2.5em;
+  }
+}
+.flotantesFijas .sugerencias {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: rotate(270deg);
+  background-color: #603e85;
+  padding: 0 1em;
+  cursor: pointer;
+  border-radius: 0.5em 0.5em 0 0;
+}
+@media (min-width: 65em) {
+  .flotantesFijas .sugerencias {
+    padding: 0 1.5em;
+    left: 0;
+  }
+}
+.flotantesFijas .sugerencias p {
+  margin: 0;
+  margin-bottom: 1em;
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 0.8em;
+}
+@media (min-width: 65em) {
+  .flotantesFijas .sugerencias p {
+    font-size: 1.25em;
   }
 }

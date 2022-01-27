@@ -10,7 +10,7 @@
     transition: 1s;
     background-color: $blanco;
     position: absolute;
-    z-index: 1;
+    z-index: 1000;
     @include desktop {
         transform: translateX(0%);
         position: relative;

@@ -1,0 +1,46 @@
+.flotantesFijas {
+    right: 2%;
+    position: fixed;
+    width: 4em;
+    height: 100%;
+    bottom: 10%;
+    z-index: 5;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+
+    div {
+        margin-top: 1em;
+        img {
+            height: 2em;
+            cursor: pointer;
+            @include desktop {
+                height: 2.5em;
+            }
+        }
+    }
+    .sugerencias {
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        transform: rotate(270deg);
+        background-color: $morado;
+        padding: 0 1em;
+        cursor: pointer;
+        border-radius: 0.5em 0.5em 0 0;
+        @include desktop {
+            padding: 0 1.5em;
+            left: 0;
+        }
+        p {
+            margin: 0;
+            margin-bottom: 1em;
+            color: $blanco;
+            text-transform: capitalize;
+            font-size: 0.8em;
+            @include desktop {
+                font-size: 1.25em;
+            }
+        }
+    }
+}
